@@ -1,10 +1,10 @@
 Yo welcome to _Ableton Live Sort_. 
 
-I made this cause I thought I'd be handy tool. There might be extensions in the future for further functionality.
+I made this because I thought I'd be a handy tool. There might be extensions in the future for further functionality.
 
 I think the programm is pretty much self-explanatory. 
 
-You open it and enter the path to a folder, like `/Users/AngelaMerkel/Music/Ableton_Files`. Ideally there are **.als** files in there. If not it will let you know. 
+You open it and enter the path to a folder. For example `/Users/AngelaMerkel/Music/Ableton_Files`. Ideally there are **.als** files in there. If not it will let you know. 
 
 You have to enter the Live Version you are using. For example **Ableton Live Suite 11**.
 
