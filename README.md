@@ -12,4 +12,14 @@ You have to enter the Live Version you are using. For example **Ableton Live 11 
 
 The existing Live Files will be displayed and sorted acording to the time of the last edit. The 175 most recently edited files will be displayed.
 
+**For those who dont use the python executable:**
+
+You need **Python3** to run the py file. The makefile uses **cmake** to compile the c file. You also need Tkinter for The GUI but it should be included in your Python3 version.
+
+In the _Ableton_Live_Sort.c_ file you need to put the path to the directory where the .py files are in the **chdir** call. For example: `chdir("/Users/Applications/Ableton_Live_Sort")`.
+
+You also need to enter the path of the **hide_terminal.scpt** which hides the terminal which pops up. For example `system("osascript /Users/AngelaMerkel/Scripts/hide_terminal.scpt");`
+
+If you want to call the python file on a windows system you have to modifie **Ableton_Live_Sort.c** since its using an AppleScript.
+
 If you find a bug or want to participate on the repository let me know 💋

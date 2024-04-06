@@ -6,6 +6,9 @@ import subprocess
 
 def open_live(file_path, text_box):
 
+	print("+ ")
+	print(file_path)
+
 	with open(new_prog_path, 'r') as file:
 		program = file.readline().strip()
 
@@ -13,13 +16,13 @@ def open_live(file_path, text_box):
 	try:
 		subprocess.run(["open", "-a", program, file_path])
 	except FileNotFoundError:
-		print("Ableton Live wasnt found")
+		print("+ 0")
 	except subprocess.CalledProcessError:
 		print("The File couldnt be opend")
 		message = "Live files can not be opend with the given program. Enter a valid program-name!"
 		new_prog_message(text_box, message, "")
 
-	print("+ programm öffnen ende")
+	#print("+ programm öffnen ende")
 
 def old_find_folder(path):
 	try: 
@@ -28,11 +31,12 @@ def old_find_folder(path):
 			if first_line.startswith("/"):
 				return first_line
 			else:
-				print("nothing found")
+				#print("nothing found")
 				return "0"
 
 	except FileNotFoundError:
-		print("txt file not found")
+		#print("txt file not found")
+  		pass
 
 def find_folder():
 
@@ -42,12 +46,12 @@ def find_folder():
 	txt_file_full = os.path.join(srt_path, txt_file)
 
 	if os.path.exists(txt_file_full):
-		print("+ txt path exists")
-		print(txt_file_full)
-		#pass
+		#print("+ txt path exists")
+		#print(txt_file_full)
+		pass
 	else:
 
-		print("+ txt file dosnt exist")
+		#print("+ txt file dosnt exist")
 		
 		with open(txt_file_full, 'w') as file:
 			#file.write("created")
@@ -164,16 +168,22 @@ def als_files_ausgeben(frame, folder_path, text_box):
 	for file, _ in ableton_files:
 
 		file_name = os.path.basename(file)
-		button = tk.Button(frame, text=file_name, bd=0, relief="flat", bg="blue" ,command= lambda f=file: open_live(os.path.join(folder_path, file), text_box))
-		
-		
+		 
 		y_pos = 20 + count
+
+		#create_buttons(frame, file, filename)
+		#print(file)
+		button = tk.Button(frame, text=file_name, bd=0, relief="flat" ,command= lambda f=file: open_live(f, text_box)) #nicht nötig: os.path.join(folder_path, file)
+		
 
 		button.place(x=200, y=y_pos, anchor="center")
 		count = count + 30
 		count2 = count2 + 1
 
 		if count2 == 175:
+			
+			#print(files)
+			#print(len(files))
 			break
 
 def prog_find(root):
@@ -235,7 +245,7 @@ def new_prog_message(text_box, message, program):
 
 def save_program(entry, path, text_box):
 
-	print("+ saving program")
+	#print("+ saving program")
 
 	program = entry.get()
 
