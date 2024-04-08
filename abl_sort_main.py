@@ -14,12 +14,13 @@ from abl_functions import prog_find
 
 def main():
 
+
 	#das Fenster
 	root = tk.Tk()
 	root.title("Ableton Live Sort")
 	root.configure(bg="gray16")
 	root.resizable(False, False)
-	root.geometry("498x680")
+	root.geometry("498x680+600+100")
 
 	#ein canvas was den frame und scrollbar hält
 	canvas = tk.Canvas(root, width=420, height=410, scrollregion=(0,0,420,5300))
