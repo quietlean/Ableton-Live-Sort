@@ -133,12 +133,11 @@ def als_files_ausgeben(frame, folder_path, text_box):
 	count = 0
 	ableton_files = []
 	exclude = "Backup"
-	for root, dirs, files in os.walk(folder_path):
+	for root, dirs, files in os.walk(folder_path, topdown=True):
 		#print(files)
-		#if exclude in dirs:
-			#print(dirs)
-			#dirs.remove(exclude) #So wird backup ordner nicht berücksichtigt
-			#continue
+		if 'Backup' in dirs:
+			dirs.remove('Backup') #So wird backup ordner nicht berücksichtigt
+
 		for file in files:
 			if file.endswith(".als"):
 				file_path = os.path.join(root, file) #Damit wird der File path und der name der .als datei zusammengefügt. Dadurch hat man gesammten Path der File
@@ -151,7 +150,7 @@ def als_files_ausgeben(frame, folder_path, text_box):
 		
 		if count == 10000:
 			break
-
+	#print(ableton_files)
 	#for file in os.listdir(folder_path):
 	#	if file.endswith(".als"):
 	#		file_path = os.path.join(folder_path, file) #Damit wird der File path und der name der .als datei zusammengefügt. Dadurch hat man gesammten Path der File
@@ -171,8 +170,7 @@ def als_files_ausgeben(frame, folder_path, text_box):
 		 
 		y_pos = 20 + count
 
-		#create_buttons(frame, file, filename)
-		#print(file)
+
 		button = tk.Button(frame, text=file_name, bd=0, relief="flat" ,command= lambda f=file: open_live(f, text_box)) #nicht nötig: os.path.join(folder_path, file)
 		
 
